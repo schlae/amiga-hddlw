@@ -1,0 +1,8 @@
+Item,Qty,Reference(s),Value,Mouser
+1,1,C1,0.1uF,594-K104K10X7RF53H5 or equiv
+2,1,J1,Amiga Side,737-BHR-34-VUA or equiv
+3,1,J2,Floppy Drive,517-929975-01-17-RK or equiv
+4,1,J3,SEL,(Just use generic breakaway header)
+5,1,J4,Power In,571-1718254
+6,1,J5 or J6,Power Out,571-5-146763-6 or equiv
+7,1,U1,GAL16V8,556-AF16V8B15PU

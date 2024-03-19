@@ -1,0 +1,37 @@
+GAL16V8
+amigafloppy
+
+MOTB NC NC NC NC NC FDINDEX MCLKIN DSELB GND
+HDSENSEB ARDYB HDSENSEL ID0  MOTSPINB  MCLKDIV ID1 MCLKOUT INDEX VCC
+
+; Index is just a straight passthrough
+INDEX.T = FDINDEX
+; Only active when drive is enabled.
+INDEX.E = /DSELB
+
+; Active when motor enabled and spinning
+; Active when hdsensel = 1 and id0 = 0 and id1 = 1 (but not when id0 = 1 and id1 = 0)
+; Active when hdsensel = 0 and id0 = 0 and id1 = 0
+/ARDYB.T = MOTB * /ID0 + MOTB * HDSENSEL * ID1 + /MOTB * /MOTSPINB
+; Only active when drive is enabled
+ARDYB.E = /DSELB
+
+; ID counter bits
+; Reset low when DSELB and MOTB are low.
+; Keep low when HDSENSEL is low.
+/ID1 =         DSELB * /ID1 + /MOTB * /DSELB + /DSELB * /HDSENSEL + /DSELB * ID0
+/ID0 = MOTB * /DSELB * /ID0 + /MOTB * /DSELB +  DSELB * /ID1
+
+; Motor clock divider
+; if HDSENSEL is low, then just pass MCLKIN to MCLKOUT
+; if HDSENSEL is high, then count
+/MCLKOUT = HDSENSEL * /MCLKIN * /MCLKOUT + HDSENSEL * MCLKIN * /MCLKDIV + /HDSENSEL * /MCLKIN
+/MCLKDIV = HDSENSEL *  MCLKIN * /MCLKDIV + HDSENSEL * /MCLKIN * MCLKOUT
+
+; Motor spinning signal. Assert on first index pulse after motor enable signal
+/MOTSPINB = /MOTB * /MOTSPINB + /FDINDEX
+
+; High density selected latch. Latches (inverted) HDSENSEB signal from drive upon falling edge of DSELB
+/HDSENSEL = DSELB * /HDSENSEL + /DSELB * HDSENSEB
+
+
