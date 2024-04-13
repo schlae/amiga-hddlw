@@ -70,8 +70,9 @@ out how to get the high density select signal onto pin 4 of the drive.
 
 Perform the following changes
 
-* Install JC40, which is connected to pin 4 of the floppy connector and
-provides the high-density sense signal. See the green circle in the image below.
+* Install JC40 (a zero ohm resistor or wire jumper), which is connected to pin
+4 of the floppy connector and provides the high-density sense signal. See the
+green circle in the image below.
 * Cut the trace between pin 38 of IC1 and pin 16 of IC2. This is the motor
 driver clock. This is indicated by the diagonal arrow in the image below.
 * Connect a wire from pin 38 of IC1 to pin 14 of the floppy connector (blue
@@ -85,8 +86,9 @@ wire in the image)
 
 Perform the following changes
 
-* Install S5, which is connected to pin 4 of the floppy connector and
-provides the high-density sense signal (circled in the image)
+* Install S5 (a zero ohm resistor or wire jumper), which is connected to pin 4
+of the floppy connector and provides the high-density sense signal (circled in
+the image)
 * Remove 1K resistor R9 (which may be named differently on different board
 revs, but one end is always tied to pin 4 of J5; pointed to by the green
 arrow)
