@@ -103,6 +103,9 @@ it retains the same designator.
 
 ![Alternate TEAC board](https://github.com/schlae/amiga-hddlw/blob/main/photos/teac_variation.jpg)
 
+Another alternative board uses R12 (as above) but uses S6 instead of S5.
+
+![Second alternate TEAC board](https://github.com/schlae/amiga-hddlw/blob/main/photos/teac_variation2.jpg)
 
 ## Functional Explanation
 
