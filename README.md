@@ -79,6 +79,7 @@ driver clock. This is indicated by the diagonal arrow in the image below.
 wire in the image)
 * Connect a wire from pin 16 of IC2 to pin 6 of the floppy connector (red
 wire in the image)
+* (Optional) This drive *may* have issues regulating the motor speed at lower RPMs. You can try changing resistor R21 (located next to IC2) from 100K to a 68K resistor.
 
 ![Modifications on the Sony MPF920-E](https://github.com/schlae/amiga-hddlw/blob/main/photos/sony_modded.jpg)
 
@@ -127,6 +128,10 @@ If a double-density disk is inserted, the PAL
 * Returns the drive ID pattern `11111111...`, a double-density drive/disk
 
 And that's about it.
+
+## Troubleshooting
+
+Some folks have issues where high density disks will sometimes read but will not format correctly. This can be caused by the motor speed not regulating well at the lower RPM. On the Sony drive, you can replace R21 with a 68K resistor. The TEAC drives may have similar problems but I haven't figured out a rework for them.
 
 ## License
 This work is licensed under a Creative Commons Attribution-ShareAlike 4.0
