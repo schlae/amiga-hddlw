@@ -50,6 +50,16 @@ drive and potentially damage them.
 Jumper J3 should be set to 1 for DF0 and 2 for DF1. Position 3 has not been
 tested yet but may work.
 
+## Rework
+
+You will (most likely) need to add a bodge resistor to the design for it to
+operate properly on many drives. This is because the pullup on the INDEX line
+on the drive itself is weak or nonexistent. Connect a 10K ohm resistor from
+pin 7 of the PAL to pin 20 of the PAL.
+
+(Bottom view of the board)
+![Reverse view of the board showing resistor](photos/resistor_mod.jpg)
+
 ## PAL programming
 
 See the [source file](https://github.com/schlae/amiga-hddlw/blob/main/pal/amiga-hddlw.pld).
